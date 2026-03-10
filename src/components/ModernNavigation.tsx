@@ -101,7 +101,7 @@ export function ModernNavigation() {
           </button>
 
           {/* Desktop Nav */}
-          <div style={{ display: "flex", alignItems: "center", gap: "2.5rem" }} className="hidden md:flex">
+          <div className="hidden md:flex gap-4 items-center">
             {navItems.map((item) => (
               <button
                 key={item.href}
