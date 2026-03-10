@@ -1,5 +1,5 @@
 import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 
 const navItems = [
@@ -13,7 +13,6 @@ const navItems = [
 export function ModernNavigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -45,16 +44,60 @@ export function ModernNavigation() {
           transition: "all 0.4s ease",
         }}
       >
-        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 1.5rem", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div
+          style={{
+            maxWidth: "1280px",
+            margin: "0 auto",
+            padding: "0 1.5rem",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
           {/* Logo */}
           <button
             onClick={() => scrollTo("hero")}
-            style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: "10px" }}
+            style={{
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
+            }}
           >
-            <div style={{ width: "28px", height: "28px", border: "1px solid rgba(212,168,83,0.5)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <span style={{ fontFamily: "'Playfair Display', serif", fontSize: "0.8rem", fontWeight: 700, color: "#d4a853" }}>JD</span>
+            <div
+              style={{
+                width: "28px",
+                height: "28px",
+                border: "1px solid rgba(212,168,83,0.5)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "'Playfair Display', serif",
+                  fontSize: "0.8rem",
+                  fontWeight: 700,
+                  color: "#d4a853",
+                }}
+              >
+                JD
+              </span>
             </div>
-            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "0.7rem", letterSpacing: "0.15em", color: "rgba(240,234,214,0.6)", textTransform: "uppercase" }}>Portfolio</span>
+            <span
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: "0.7rem",
+                letterSpacing: "0.15em",
+                color: "rgba(240,234,214,0.6)",
+                textTransform: "uppercase",
+              }}
+            >
+              Portfolio
+            </span>
           </button>
 
           {/* Desktop Nav */}
@@ -76,8 +119,12 @@ export function ModernNavigation() {
                   padding: "4px 0",
                   position: "relative",
                 }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#d4a853"; }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(240,234,214,0.55)"; }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.color = "#d4a853";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.color = "rgba(240,234,214,0.55)";
+                }}
               >
                 {item.label}
               </button>
@@ -88,7 +135,13 @@ export function ModernNavigation() {
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden"
-            style={{ background: "none", border: "1px solid rgba(212,168,83,0.2)", padding: "6px", cursor: "pointer", color: "#d4a853" }}
+            style={{
+              background: "none",
+              border: "1px solid rgba(212,168,83,0.2)",
+              padding: "6px",
+              cursor: "pointer",
+              color: "#d4a853",
+            }}
           >
             {mobileOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
